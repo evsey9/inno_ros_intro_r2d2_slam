@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <robot name="roscontrol" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="lidar.xacro" />
+
+  <!-- <xacro:include filename="lidar.xacro" /> -->
 
   <xacro:property name="width" value="0.2" />
   <xacro:property name="leglen" value="0.6" />
@@ -8,7 +11,7 @@
   <xacro:property name="baselen" value="0.4" />
   <xacro:property name="wheeldiam" value="0.07" />
   <xacro:property name="pi" value="3.1415" />
-
+  
   <material name="blue">
     <color rgba="0 0 0.8 1"/>
   </material>
@@ -19,6 +22,10 @@
 
   <material name="white">
     <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="red">
+    <color rgba="1 0 0 1"/>
   </material>
 
   <xacro:macro name="default_inertial" params="mass">
