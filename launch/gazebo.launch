@@ -32,4 +32,8 @@
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
 
+
+  <node pkg="tf" type="static_transform_publisher" name="trans_pub" 
+                      args="0 0 0.3 0 0 0 1 base_link world 100" />
+
 </launch>
