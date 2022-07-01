@@ -40,7 +40,7 @@
       <geometry>
         <cylinder radius="${width}" length="${bodylen}"/>
       </geometry>
-      <material name="blue"/>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -106,7 +106,7 @@
           <box size="${leglen} 0.1 0.2"/>
         </geometry>
         <origin xyz="0 0 -${leglen/2}" rpy="0 ${pi/2} 0"/>
-        <material name="white"/>
+        <material name="red"/>
       </visual>
       <collision>
         <geometry>
@@ -128,7 +128,7 @@
         <geometry>
           <box size="${baselen} 0.1 0.1"/>
         </geometry>
-        <material name="white"/>
+        <material name="red"/>
       </visual>
       <collision>
         <geometry>
@@ -153,7 +153,7 @@
     <parent link="base_link"/>
     <child link="gripper_pole"/>
     <limit effort="1000.0" lower="-${width*2-.02}" upper="0" velocity="0.5"/>
-    <origin rpy="0 0 0" xyz="${width-.01} 0 0.2"/>
+    <origin rpy="0 0 0" xyz="${width-.01} 0 0.1"/>
     <limit effort="30" velocity="0.2"/>
     <dynamics damping="0.0" friction="0.0"/>
   </joint>
@@ -248,7 +248,7 @@
       <geometry>
         <sphere radius="${width}"/>
       </geometry>
-      <material name="white"/>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -282,7 +282,7 @@
   <link name="box">
     <visual>
       <geometry>
-        <box size="0.08 0.08 0.08"/>
+        <box size="0.08 0.3 0.08"/>
       </geometry>
       <material name="blue"/>
       <origin xyz="-0.04 0 0"/>
@@ -298,7 +298,7 @@
   <joint name="tobox" type="fixed">
     <parent link="head"/>
     <child link="box"/>
-    <origin xyz="${.707*width+0.04} 0 ${.707*width}"/>
+    <origin xyz="${.707*width+0.04} 0 ${.507*width}"/>
   </joint>
 
   <!-- Gazebo plugin for ROS Control -->
@@ -308,4 +308,26 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="head">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="box">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="left_base">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="left_leg">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="right_base">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="right_leg">
+    <material>Gazebo/Red</material>
+  </gazebo>
 </robot>
