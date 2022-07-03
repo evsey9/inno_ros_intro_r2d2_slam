@@ -59,6 +59,7 @@
   <exec_depend>libpcl-all</exec_depend>
   <exec_depend>pcl_conversions</exec_depend>
   <exec_depend>interactive_markers</exec_depend>
+  <exec_depend>hector_slam</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
