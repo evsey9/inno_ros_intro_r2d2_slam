@@ -32,11 +32,11 @@
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>true</visualize>
-            <update_rate>10</update_rate>
+            <update_rate>40</update_rate>
             <ray>
                 <scan>
                     <horizontal>
-                        <samples>360</samples>
+                        <samples>720</samples>
                         <min_angle>-3.14</min_angle>
                         <max_angle>3.14</max_angle>
                     </horizontal>
@@ -47,8 +47,8 @@
                 </range>
             </ray>
             <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-                <topicName>/mybot/laser_scan</topicName>
-                <frame_name>laser_frame</frame_name>
+                <topicName>/scan</topicName>
+                <frameName>laser_frame</frameName>
             </plugin>
         </sensor>
     </gazebo>

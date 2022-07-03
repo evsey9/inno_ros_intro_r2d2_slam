@@ -31,4 +31,5 @@
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/r2d2_diff_drive_controller/cmd_vel"/>
   </node>
+  <param name="r2d2_diff_drive_controller/enable_odom_tf" value="true"/>
 </launch> 
