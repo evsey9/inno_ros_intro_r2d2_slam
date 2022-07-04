@@ -4,8 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
-        - /Status1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 302
   - Class: rviz/Views
@@ -140,19 +139,87 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        base_link:
+          Value: true
+        box:
+          Value: false
+        gripper_pole:
+          Value: false
+        head:
+          Value: false
+        laser_frame:
+          Value: false
+        left_back_wheel:
+          Value: false
+        left_base:
+          Value: false
+        left_front_wheel:
+          Value: false
+        left_gripper:
+          Value: false
+        left_leg:
+          Value: false
+        left_tip:
+          Value: false
+        map:
+          Value: true
+        odom:
+          Value: true
+        right_back_wheel:
+          Value: false
+        right_base:
+          Value: false
+        right_front_wheel:
+          Value: false
+        right_gripper:
+          Value: false
+        right_leg:
+          Value: false
+        right_tip:
+          Value: false
+        scanmatcher_frame:
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_link:
+              gripper_pole:
+                left_gripper:
+                  left_tip:
+                    {}
+                right_gripper:
+                  right_tip:
+                    {}
+              head:
+                box:
+                  {}
+              laser_frame:
+                {}
+              left_leg:
+                left_base:
+                  left_back_wheel:
+                    {}
+                  left_front_wheel:
+                    {}
+              right_leg:
+                right_base:
+                  right_back_wheel:
+                    {}
+                  right_front_wheel:
+                    {}
+          scanmatcher_frame:
+            {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -204,7 +271,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 8.59783935546875
+      Distance: 8.77314281463623
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -219,10 +286,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5197962522506714
+      Pitch: 1.124796748161316
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.0968286991119385
+      Yaw: 2.0418291091918945
     Saved: ~
 Window Geometry:
   Displays:
@@ -235,4 +302,4 @@ Window Geometry:
     collapsed: false
   Width: 1200
   X: 360
-  Y: 20
+  Y: 0
