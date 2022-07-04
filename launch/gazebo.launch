@@ -9,7 +9,7 @@
   <arg name="model" default="$(find r2d2_slam)/urdf/robot.urdf"/>
   <arg name="world" default="$(find r2d2_slam)/world/maze.world" />
 
-    <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find r2d2_slam)/models"/>
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find r2d2_slam)/models"/>
   <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find r2d2_slam)/models"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
@@ -32,20 +32,6 @@
     <param name="publish_frequency" type="double" value="40.0" />
   </node>
 
-  <arg name="geotiff_map_file_path" default="$(find hector_geotiff)/maps"/>
-  
-  <include file="$(find hector_mapping)/launch/mapping_default.launch">
-    <arg name="base_frame" value="base_link"/>
-    <arg name="odom_frame" value="odom"/>
-  </include>
-
-  <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch">
-    <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>
-    <arg name="map_file_path" value="$(arg geotiff_map_file_path)"/>
-  </include>
-  
-  <!--<node pkg="tf" type="static_transform_publisher" name="trans_pub" 
-                      args="0 0 0 0 0 0 1 odom base_link 100" />-->
   
 
 </launch>
