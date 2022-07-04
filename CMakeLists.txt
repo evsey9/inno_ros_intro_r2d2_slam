@@ -36,9 +36,13 @@ catkin_package(
       pcl_conversions
       interactive_markers)
 
+
 include_directories(${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS})
 
 foreach(dir bag config launch output)
     install(DIRECTORY ${dir}/
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
+
+add_executable(test_node src/test_node.cpp)
+target_link_libraries(test_node ${catkin_LIBRARIES})

@@ -1,0 +1,4 @@
+<launch>
+    <node name="dsad" pkg = "r2d2_slam" type="test_node"/>
+    <include file="$(find r2d2_slam)/launch/diffdrive_noetic.launch" />
+</launch> 
