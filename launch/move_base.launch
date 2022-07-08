@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="odom_topic" default = "odom"/>
+    
+    <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+        <rosparam file="$(find r2d2_slam)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find r2d2_slam)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find r2d2_slam)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find r2d2_slam)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find r2d2_slam)/config/base_local_planner_params.yaml" command="load" />
+
+        <param name="Reg/Force3DoF" value="true"/>
+        <param name="Optimizer/Slam2D" value="true"/>
+    
+        <remap from="cmd_vel" to="/r2d2_diff_drive_controller/cmd_vel"/>
+        <remap from="odom" to="/r2d2_diff_drive_controller/odom"/>
+        <remap from="scan" to="/scan"/>
+        
+        
+
+    </node>
+</launch>
+
