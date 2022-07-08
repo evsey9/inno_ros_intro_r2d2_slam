@@ -15,6 +15,7 @@
         <remap from="cmd_vel" to="/r2d2_diff_drive_controller/cmd_vel"/>
         <remap from="odom" to="/r2d2_diff_drive_controller/odom"/>
         <remap from="scan" to="/scan"/>
+        <remap from="/move_base_simple/goal" to="/goal"/>
         
         
 
