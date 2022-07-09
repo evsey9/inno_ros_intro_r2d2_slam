@@ -6,6 +6,8 @@
     <arg name="model" value="$(arg model)" />
   </include>
 
+  <!-- <include file="$(find r2d2_slam)/launch/move_base.launch"/> -->
+
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
 
   <rosparam command="load"
@@ -89,5 +91,8 @@
     <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>
     <arg name="map_file_path" value="$(arg geotiff_map_file_path)"/>
   </include>
+
+  <node name="simple_control" pkg = "r2d2_slam" type="simple_control"/>
+
 
 </launch> 

@@ -27,9 +27,9 @@
           r2d2_gripper_controller
           r2d2_diff_drive_controller"/>
 
-  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+  <!--<node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/r2d2_diff_drive_controller/cmd_vel"/>
-  </node>
+  </node>-->
 
   <param name="r2d2_diff_drive_controller/enable_odom_tf" value="true"/>
   
@@ -41,7 +41,7 @@
   <arg name="scan_subscriber_queue_size" default="5"/>
   <arg name="scan_topic" default="/scan"/>
   <arg name="map_size" default="2048"/>
-  <arg name="node_start_delay" default="2.0" />  
+  <arg name="node_start_delay" default="3.0" />  
   <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " respawn="true">
     
     <!-- Frame names -->

@@ -44,5 +44,5 @@ foreach(dir bag config launch output)
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
 endforeach(dir)
 
-add_executable(test_node src/test_node.cpp)
-target_link_libraries(test_node ${catkin_LIBRARIES})
+add_executable(simple_control src/simple_control.cpp)
+target_link_libraries(simple_control ${catkin_LIBRARIES})
