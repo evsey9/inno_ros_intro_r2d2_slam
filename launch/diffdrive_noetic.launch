@@ -1,12 +1,17 @@
 <launch>
   <arg name="model" default="$(find r2d2_slam)/urdf/robot.urdf"/>
   <arg name="rvizconfig" default="$(find r2d2_slam)/rviz/robot.rviz" />
+  <arg name="move_base" default = "false"/>
+  <arg name="linear_move_base" default = "true" />
+  <arg name="steering" default = "false" />
 
   <include file="$(find r2d2_slam)/launch/gazebo.launch">
     <arg name="model" value="$(arg model)" />
   </include>
 
-  <!-- <include file="$(find r2d2_slam)/launch/move_base.launch"/> -->
+  <group if = "$(arg move_base)">
+    <include file="$(find r2d2_slam)/launch/move_base.launch"/>
+  </group>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
 
@@ -29,9 +34,11 @@
           r2d2_gripper_controller
           r2d2_diff_drive_controller"/>
 
-  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-    <param name="default_topic" value="/r2d2_diff_drive_controller/cmd_vel"/>
-  </node>
+  <group if = "$(arg steering)">
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+      <param name="default_topic" value="/r2d2_diff_drive_controller/cmd_vel"/>
+    </node>
+  </group>
 
   <param name="r2d2_diff_drive_controller/enable_odom_tf" value="true"/>
   
@@ -92,7 +99,8 @@
     <arg name="map_file_path" value="$(arg geotiff_map_file_path)"/>
   </include>
 
-  <node name="simple_control" pkg = "r2d2_slam" type="simple_control"/>
-
+  <group if = "$(arg linear_move_base)">
+    <node name="simple_control" pkg = "r2d2_slam" type="simple_control"/>
+  </group>
 
 </launch> 
